@@ -1,0 +1,24 @@
+@model WebApplication1.Models.login
+@{
+    ViewBag.Title = "signin";
+}
+
+<h2>signin</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(a => a.username)
+        @Html.EditorFor(a=>a.username)
+        @Html.ValidationMessageFor(a=>a.username)
+    </div>
+
+    <div>
+        @Html.LabelFor(a => a.pwd)
+        @Html.PasswordFor(a => a.pwd)
+        @Html.ValidationMessageFor(a => a.pwd)
+    </div>
+
+    <input type="submit" value="login" />
+}
+
