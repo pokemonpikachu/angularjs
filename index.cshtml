@@ -1,0 +1,173 @@
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angularcode.js"></script>
+<style>
+    .btn-space {
+        margin-left: -5%;
+        background-color: cornflowerblue;
+        font-size: large;
+    }
+</style>
+<h2>Index</h2>
+<div ng-app="myApp">
+    <div ng-controller="myCtrl" ng-init="GetAllData()" class="divList">
+        <p class="divHead">List of Employee</p>
+        <table cellpadding="12" class="table table-bordered table-hover">
+            <tr>
+                <td>
+                    <b>SubID</b>
+                </td>
+                <td>
+                    <b>Name</b>
+                </td>
+                <td>
+                    <b>Date of Birth</b>
+                </td>
+                <td>
+                    <b>Contact No</b>
+                </td>
+                <td>
+                    <b>State</b>
+                </td>
+                <td>
+                    <b>city</b>
+                </td>
+                <td>
+                    <b>Address Line 1</b>
+                <td>
+                    <b>Address Line 2</b>
+                </td>
+                <td>
+                    <b>Pincode</b>
+                <td>
+                    <b>Status</b>
+                </td>                              
+            </tr>
+            <tr ng-repeat="Emp in employee">
+                <td>
+                    {{Emp.subid}}
+                </td>
+                <td>
+                    {{Emp.name}}
+                </td>
+                <td>
+                    {{Emp.dob}}
+
+                </td>
+                <td>
+                    {{Emp.contact_num}}
+                </td>
+                <td>
+                    {{Emp.stat}}
+                </td>
+                <td>
+                    {{Emp.city}}
+                </td>
+                <td>
+                    {{Emp.addr1}}
+                </td>
+                <td>
+                    {{Emp.addr2}}
+                </td>
+                <td>
+                    {{Emp.pincode}}
+                </td>
+                <td>
+                    {{Emp.statu}}
+                </td>              
+               
+                <td>
+                    <input type="button" class="btn btn-warning" value="Update" ng-click="UpdateEmp(Emp)" />
+                    <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteEmp(Emp)" />
+                </td>
+            </tr>
+        </table>
+        <div class="form-horizontal" role="form">
+            <div class="container">
+                <div class="row">
+                    <h2>
+                        <span id="spn">Add New Employee</span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Name:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Name" ng-model="Empname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Date of Birth:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Date of Birth" ng-model="Empdob"  >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Contact No:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputPassword" placeholder="Contact No" ng-model="Empcontact">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">State:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="State" ng-model="Empstate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">City:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="City" ng-model="Empcity">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Address Line1:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="Addr1" ng-model="Empaddr1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Address Line2:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="Addr2" ng-model="Empaddr2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Pincode:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="Pincode" ng-model="Emppincode">
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <input type="button" id="btnSave" class="form-control btn-space" value="Submit" ng-click="InsertData()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Hidden("EmpID_")
+
+</div>  
